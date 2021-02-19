@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace InfraestructuraDatos.Migrations
+namespace Elipgo.SuperZapatos.InfraestructuraDatos.Migrations
 {
     [DbContext(typeof(SuperZapatosDBContext))]
     partial class SuperZapatosDBContextModelSnapshot : ModelSnapshot

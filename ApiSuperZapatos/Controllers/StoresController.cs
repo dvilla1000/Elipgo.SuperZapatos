@@ -21,17 +21,15 @@ namespace Elipgo.SuperZapatos.ApiSuperZapatos.Controllers
 
         // GET: api/<StoresController>
         [HttpGet]
-        public IActionResult Get() //IEnumerable<DTO.ResponseSuccess>
+        public IActionResult Get()
         {
             //string json = JsonConvert.SerializeObject(new DTO.ResponseError() { ErrorCode = 500, ErrorMessage = "Server Error", Success = false }, Formatting.Indented);
             //return StatusCode(500, new DTO.ResponseError() { ErrorCode = 500, ErrorMessage = "Server Error", Success = false });
             try
             {
-                DTO.Store store = new DTO.Store() { Id = 0, Name = "Elipo Matriz", Address = "Calle xyz" };
-                IList<DTO.Store> storesList = new List<DTO.Store>();
-                storesList.Add(store);
-                storesList.Add(new DTO.Store() { Id = 1, Name = "Elipo Suc1", Address = "Calle xyz" });
-                return Ok(new DTO.ResponseStores() { Success = true, Stores = storesList });
+                Aplicacion.Services.StoresService servicio = new Aplicacion.Services.StoresService();
+                IList<Aplicacion.Adaptadores.Store> stores = servicio.GetStores().ToList();
+                return Ok(new DTO.ResponseStores() { Success = true, Stores = stores }) ;
             }
             catch (Exception ex)
             {
@@ -44,7 +42,6 @@ namespace Elipgo.SuperZapatos.ApiSuperZapatos.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(string id)
         {
-            //return StatusCode(500, new DTO.ResponseError() { ErrorCode = 500, ErrorMessage = "Server Error", Success = false });
             try
             {
                 long identificador = 0;
@@ -52,7 +49,12 @@ namespace Elipgo.SuperZapatos.ApiSuperZapatos.Controllers
                 {                    
                     return BadRequest(new DTO.ResponseError() { ErrorCode = 400, ErrorMessage = "Bad request", Success = false });
                 }
-                DTO.Store store = new DTO.Store() { Id = 0, Name = "Elipo Matriz", Address = "Calle xyz" };
+                Aplicacion.Services.StoresService servicio = new Aplicacion.Services.StoresService();
+                Aplicacion.Adaptadores.Store store = servicio.GetStore(identificador);
+                if (store == null)
+                {
+                    return NotFound(new DTO.ResponseError() { ErrorCode = 404, ErrorMessage = "Record not Found", Success = false });
+                }
                 return Ok(new DTO.ResponseStore() { Success = true, Store = store });
             }
             catch (Exception ex)
@@ -64,20 +66,31 @@ namespace Elipgo.SuperZapatos.ApiSuperZapatos.Controllers
 
         // POST api/<StoresController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Aplicacion.Adaptadores.Store value)
         {
+            Aplicacion.Services.StoresService servicio = new Aplicacion.Services.StoresService();
+            servicio.AddStore(value);
+            servicio.SaveChanges();
         }
 
         // PUT api/<StoresController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put([FromBody] Aplicacion.Adaptadores.Store value)
         {
+            Aplicacion.Services.StoresService servicio = new Aplicacion.Services.StoresService();
+            //Aplicacion.Adaptadores.Store store = servicio.GetStore(id);
+            servicio.UpdateStore(value);
+            servicio.SaveChanges();
+
         }
 
         // DELETE api/<StoresController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            Aplicacion.Services.StoresService servicio = new Aplicacion.Services.StoresService();
+            servicio.DeleteStore(id);
+            servicio.SaveChanges();
         }
     }
 }

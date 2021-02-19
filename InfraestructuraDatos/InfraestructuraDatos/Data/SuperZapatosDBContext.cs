@@ -1,4 +1,5 @@
-﻿using Elipgo.SuperZapatos.InfraestructuraDatos.Models;
+﻿using Elipgo.SuperZapatos.Dominio.Entities;
+//using Elipgo.SuperZapatos.InfraestructuraDatos.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;

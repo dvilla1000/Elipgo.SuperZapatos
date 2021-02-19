@@ -7,6 +7,6 @@ namespace Elipgo.SuperZapatos.ApiSuperZapatos.DTO
 {
     public class ResponseStore : ResponseGeneral
     {
-        public Store Store { get; set; }
+        public Aplicacion.Adaptadores.Store Store { get; set; }
     }
 }

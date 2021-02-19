@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace InfraestructuraDatos.Migrations
+namespace Elipgo.SuperZapatos.InfraestructuraDatos.Migrations
 {
     public partial class Initial : Migration
     {

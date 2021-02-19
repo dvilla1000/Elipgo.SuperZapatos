@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace InfraestructuraDatos
+namespace Aplicacion
 {
     public class Class1
     {

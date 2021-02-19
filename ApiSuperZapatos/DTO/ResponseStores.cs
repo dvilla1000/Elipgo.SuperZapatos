@@ -11,9 +11,9 @@ namespace Elipgo.SuperZapatos.ApiSuperZapatos.DTO
         [JsonProperty("total_elements")]
         public long TotalElements
         {
-            get { return Stores.Count; }
+            get { return Stores.Count(); }
         }
         
-        public IList<Store> Stores { get; set; }
+        public IList<Aplicacion.Adaptadores.Store> Stores { get; set; }
     }
 }

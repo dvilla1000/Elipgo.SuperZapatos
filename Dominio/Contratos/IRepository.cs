@@ -4,13 +4,13 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace InfraestructuraDatos.Repositories
+namespace Elipgo.SuperZapatos.Dominio.Contratos
 {
     /// <summary>
     /// Interfaz para repositorio generico
     /// </summary>
     /// <typeparam name="T">Objeto del repositorio</typeparam>
-    interface IRepository<T> where T : class
+    public interface IRepository<T> where T : class
     {
         /// <summary>
         /// Obtiene los datos del repositorio basado en una expresión

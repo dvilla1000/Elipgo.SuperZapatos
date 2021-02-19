@@ -19,7 +19,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03. Aplicacion", "03. Aplic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dominio", "Dominio\Dominio.csproj", "{933E715B-6709-4B5B-A0B4-E163E913CD71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfraestructuraDatos", "InfraestructuraDatos\InfraestructuraDatos\InfraestructuraDatos.csproj", "{9743C7BE-6F96-4053-9B73-4EB817C73D3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InfraestructuraDatos", "InfraestructuraDatos\InfraestructuraDatos\InfraestructuraDatos.csproj", "{9743C7BE-6F96-4053-9B73-4EB817C73D3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aplicacion", "Aplicacion\Aplicacion\Aplicacion.csproj", "{0A57DF6D-C2B8-442C-8145-B525DB3BFF17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{9743C7BE-6F96-4053-9B73-4EB817C73D3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9743C7BE-6F96-4053-9B73-4EB817C73D3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9743C7BE-6F96-4053-9B73-4EB817C73D3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A57DF6D-C2B8-442C-8145-B525DB3BFF17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A57DF6D-C2B8-442C-8145-B525DB3BFF17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A57DF6D-C2B8-442C-8145-B525DB3BFF17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A57DF6D-C2B8-442C-8145-B525DB3BFF17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,6 +58,7 @@ Global
 		{8AB3E181-8807-4CC0-81B9-CFA9D953916E} = {A4DD7D26-53C3-4D81-992A-17D37B89D06C}
 		{933E715B-6709-4B5B-A0B4-E163E913CD71} = {DA324461-3753-41C6-827D-A52B82BBED2A}
 		{9743C7BE-6F96-4053-9B73-4EB817C73D3C} = {69E10939-8623-49F7-858D-76A27CEDD9DA}
+		{0A57DF6D-C2B8-442C-8145-B525DB3BFF17} = {1F4CA2AD-6CD3-4EEB-9001-D49D8FFB58FB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {45D532CB-9886-441A-8D34-D7124BEE2C88}

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace InfraestructuraDatos.Migrations
+namespace Elipgo.SuperZapatos.InfraestructuraDatos.Migrations
 {
     [DbContext(typeof(SuperZapatosDBContext))]
     [Migration("20210218051649_Initial")]

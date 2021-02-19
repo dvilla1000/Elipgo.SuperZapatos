@@ -1,4 +1,5 @@
 ﻿using Elipgo.SuperZapatos.InfraestructuraDatos.Data;
+using Elipgo.SuperZapatos.Dominio.Contratos;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace InfraestructuraDatos.Repositories
+namespace Elipgo.SuperZapatos.InfraestructuraDatos.Repositories
 {
     /// <summary>
     /// Repositorio generico

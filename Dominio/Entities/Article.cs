@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace Elipgo.SuperZapatos.InfraestructuraDatos.Models
+namespace Elipgo.SuperZapatos.Dominio.Entities
 {
     [Table("Articles")]
     public class Article
