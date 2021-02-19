@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,8 @@ namespace Elipgo.SuperZapatos.ApiSuperZapatos.Controllers
         [HttpGet]
         public IActionResult Get() //IEnumerable<DTO.ResponseSuccess>
         {
+            //string json = JsonConvert.SerializeObject(new DTO.ResponseError() { ErrorCode = 500, ErrorMessage = "Server Error", Success = false }, Formatting.Indented);
+            //return StatusCode(500, new DTO.ResponseError() { ErrorCode = 500, ErrorMessage = "Server Error", Success = false });
             try
             {
                 DTO.Store store = new DTO.Store() { Id = 0, Name = "Elipo Matriz", Address = "Calle xyz" };
@@ -33,7 +36,7 @@ namespace Elipgo.SuperZapatos.ApiSuperZapatos.Controllers
             catch (Exception ex)
             {
                 logger.LogError("Ocurrió un error interno al obtener los Stores.", ex);
-                return StatusCode(500, new DTO.ResponseError() { error_code = 500, error_msg = "Server Error", Success = false });
+                return StatusCode(500, new DTO.ResponseError() { ErrorCode = 500, ErrorMessage = "Server Error", Success = false });
             }
         }
 
@@ -41,12 +44,13 @@ namespace Elipgo.SuperZapatos.ApiSuperZapatos.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(string id)
         {
+            //return StatusCode(500, new DTO.ResponseError() { ErrorCode = 500, ErrorMessage = "Server Error", Success = false });
             try
             {
                 long identificador = 0;
                 if (!long.TryParse(id,out identificador))
                 {                    
-                    return BadRequest(new DTO.ResponseError() { error_code = 400, error_msg = "Bad request", Success = false });
+                    return BadRequest(new DTO.ResponseError() { ErrorCode = 400, ErrorMessage = "Bad request", Success = false });
                 }
                 DTO.Store store = new DTO.Store() { Id = 0, Name = "Elipo Matriz", Address = "Calle xyz" };
                 return Ok(new DTO.ResponseStore() { Success = true, Store = store });
@@ -54,7 +58,7 @@ namespace Elipgo.SuperZapatos.ApiSuperZapatos.Controllers
             catch (Exception ex)
             {
                 logger.LogError("Ocurrió un error interno. Id: " + id.ToString(), ex);
-                return StatusCode(500, new DTO.ResponseError() { error_code = 500, error_msg = "Server Error", Success = false });
+                return StatusCode(500, new DTO.ResponseError() { ErrorCode = 500, ErrorMessage = "Server Error", Success = false });
             }
         }
 

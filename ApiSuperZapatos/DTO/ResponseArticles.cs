@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace Elipgo.SuperZapatos.ApiSuperZapatos.DTO
 {
-    public class ResponseStores : ResponseGeneral
+    public class ResponseArticles
+        : ResponseGeneral
     {
         [JsonProperty("total_elements")]
         public long TotalElements
         {
-            get { return Stores.Count; }
+            get { return Articles.Count; }
         }
-        
-        public IList<Store> Stores { get; set; }
+
+        public IList<Article> Articles { get; set; }
+
     }
 }

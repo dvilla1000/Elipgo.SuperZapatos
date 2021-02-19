@@ -20,16 +20,42 @@ namespace Elipgo.SuperZapatos.ApiSuperZapatos.Controllers
 
         // GET: api/<ArticlesController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                DTO.Article article = new DTO.Article() { Id = 0, Name = "Articulo 1", Description = "Articulo 1 Descripción" };
+                IList<DTO.Article> articlesList = new List<DTO.Article>();
+                articlesList.Add(article);
+                articlesList.Add(new DTO.Article() { Id = 1, Name = "Articulo 2 ", Description = "Articulo 2 Descripción" });
+                return Ok(new DTO.ResponseArticles() { Success = true, Articles = articlesList });
+            }
+            catch (Exception ex)
+            {
+                logger.LogError("Ocurrió un error interno al obtener los Articulos.", ex);
+                return StatusCode(500, new DTO.ResponseError() { ErrorCode = 500, ErrorMessage = "Server Error", Success = false });
+            }
         }
 
         // GET api/<ArticlesController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IActionResult Get(string id)
         {
-            return "value";
+            try
+            {
+                long identificador = 0;
+                if (!long.TryParse(id, out identificador))
+                {
+                    return BadRequest(new DTO.ResponseError() { ErrorCode = 400, ErrorMessage = "Bad request", Success = false });
+                }
+                DTO.Article article = new DTO.Article() { Id = 0, Name = "Articulo 1", Description = "Articulo 1 Descripción" };
+                return Ok(new DTO.ResponseArticle() { Success = true, Article = article });
+            }
+            catch (Exception ex)
+            {
+                logger.LogError("Ocurrió un error interno. Id: " + id.ToString(), ex);
+                return StatusCode(500, new DTO.ResponseError() { ErrorCode = 500, ErrorMessage = "Server Error", Success = false });
+            }
         }
 
         // POST api/<ArticlesController>
