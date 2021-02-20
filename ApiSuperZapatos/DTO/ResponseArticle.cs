@@ -7,6 +7,6 @@ namespace Elipgo.SuperZapatos.ApiSuperZapatos.DTO
 {
     public class ResponseArticle : ResponseGeneral
     {
-        public Article Article { get; set; }
+        public Aplicacion.Adaptadores.Article Article { get; set; }
     }
 }

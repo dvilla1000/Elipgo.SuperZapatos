@@ -1,0 +1,5 @@
+{
+  "Api": {
+    "endpointStore": "https://localhost:44380/api/Stores"
+  }
+}

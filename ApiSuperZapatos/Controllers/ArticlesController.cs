@@ -15,7 +15,7 @@ namespace Elipgo.SuperZapatos.ApiSuperZapatos.Controllers
     [ApiController]
     public class ArticlesController : ControllerBase
     {
-        private readonly ILogger<StoresController> logger;
+        private readonly ILogger<ArticlesController> logger;
         IConfiguration config = new ConfigurationBuilder().AddJsonFile("appsettings.json", true, true).Build();
 
         // GET: api/<ArticlesController>
@@ -24,11 +24,9 @@ namespace Elipgo.SuperZapatos.ApiSuperZapatos.Controllers
         {
             try
             {
-                DTO.Article article = new DTO.Article() { Id = 0, Name = "Articulo 1", Description = "Articulo 1 Descripción" };
-                IList<DTO.Article> articlesList = new List<DTO.Article>();
-                articlesList.Add(article);
-                articlesList.Add(new DTO.Article() { Id = 1, Name = "Articulo 2 ", Description = "Articulo 2 Descripción" });
-                return Ok(new DTO.ResponseArticles() { Success = true, Articles = articlesList });
+                Aplicacion.Services.ArticlesService servicio = new Aplicacion.Services.ArticlesService();
+                IList<Aplicacion.Adaptadores.Article> articles = servicio.GetArticles().ToList();
+                return Ok(new DTO.ResponseArticles() { Success = true, Articles = articles });
             }
             catch (Exception ex)
             {
@@ -48,7 +46,12 @@ namespace Elipgo.SuperZapatos.ApiSuperZapatos.Controllers
                 {
                     return BadRequest(new DTO.ResponseError() { ErrorCode = 400, ErrorMessage = "Bad request", Success = false });
                 }
-                DTO.Article article = new DTO.Article() { Id = 0, Name = "Articulo 1", Description = "Articulo 1 Descripción" };
+                Aplicacion.Services.ArticlesService servicio = new Aplicacion.Services.ArticlesService();
+                Aplicacion.Adaptadores.Article article = servicio.GetArticle(identificador);
+                if (article == null)
+                {
+                    return NotFound(new DTO.ResponseError() { ErrorCode = 404, ErrorMessage = "Record not Found", Success = false });
+                }
                 return Ok(new DTO.ResponseArticle() { Success = true, Article = article });
             }
             catch (Exception ex)
@@ -60,20 +63,34 @@ namespace Elipgo.SuperZapatos.ApiSuperZapatos.Controllers
 
         // POST api/<ArticlesController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Aplicacion.Adaptadores.Article value)
         {
+            Aplicacion.Services.ArticlesService servicio = new Aplicacion.Services.ArticlesService();
+            servicio.AddArticle(value);
+            servicio.SaveChanges();
         }
 
         // PUT api/<ArticlesController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(long id, [FromBody] Aplicacion.Adaptadores.Article value)
         {
+            Aplicacion.Services.ArticlesService servicio = new Aplicacion.Services.ArticlesService();
+            Aplicacion.Adaptadores.Article article = servicio.GetArticle(id);
+            if (article != null)
+            {
+                value.Id = id;
+                servicio.UpdateArticle(value);
+                servicio.SaveChanges();
+            }
         }
 
         // DELETE api/<ArticlesController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(long id)
         {
+            Aplicacion.Services.ArticlesService servicio = new Aplicacion.Services.ArticlesService();
+            servicio.DeleteArticle(id);
+            servicio.SaveChanges();
         }
     }
 }

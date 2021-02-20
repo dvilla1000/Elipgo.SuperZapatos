@@ -23,8 +23,6 @@ namespace Elipgo.SuperZapatos.ApiSuperZapatos.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            //string json = JsonConvert.SerializeObject(new DTO.ResponseError() { ErrorCode = 500, ErrorMessage = "Server Error", Success = false }, Formatting.Indented);
-            //return StatusCode(500, new DTO.ResponseError() { ErrorCode = 500, ErrorMessage = "Server Error", Success = false });
             try
             {
                 Aplicacion.Services.StoresService servicio = new Aplicacion.Services.StoresService();
@@ -75,13 +73,16 @@ namespace Elipgo.SuperZapatos.ApiSuperZapatos.Controllers
 
         // PUT api/<StoresController>/5
         [HttpPut("{id}")]
-        public void Put([FromBody] Aplicacion.Adaptadores.Store value)
+        public void Put(long id, [FromBody] Aplicacion.Adaptadores.Store value)
         {
             Aplicacion.Services.StoresService servicio = new Aplicacion.Services.StoresService();
-            //Aplicacion.Adaptadores.Store store = servicio.GetStore(id);
-            servicio.UpdateStore(value);
-            servicio.SaveChanges();
-
+            Aplicacion.Adaptadores.Store store = servicio.GetStore(id);
+            if (store != null)
+            {                
+                value.Id = id;
+                servicio.UpdateStore(value);
+                servicio.SaveChanges();
+            }
         }
 
         // DELETE api/<StoresController>/5

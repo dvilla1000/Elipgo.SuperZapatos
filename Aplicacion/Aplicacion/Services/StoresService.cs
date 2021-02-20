@@ -8,38 +8,17 @@ using System.Text;
 
 namespace Elipgo.SuperZapatos.Aplicacion.Services
 {
+    /// <summary>
+    /// Clase de Servicio para los stores
+    /// </summary>
     public class StoresService
     {
         private InfraestructuraDatos.Data.SuperZapatosDBContext szDBContext = new InfraestructuraDatos.Data.SuperZapatosDBContext();
-        //private IMapper _iMapper;
 
-        public StoresService()
-        {
-            //var config = new MapperConfiguration(cfg =>
-            //{
-            //    //cfg.CreateMap<Dominio.Entities.Store, Adaptadores.Store>().ForMember(dto => dto.Id, map => map.MapFrom(source => new Currency
-            //    //{
-            //    //    Code = source.CurrencyCode,
-            //    //    Value = source.CurrencyValue.ToString("0.00")
-            //    //}));
-            //    cfg.CreateMap<Dominio.Entities.Store, Adaptadores.Store>();
-            //        //.ForMember(dto =>
-            //        //    dto.Id,
-            //        //    opt => opt.MapFrom(src => src.Id))
-            //        //.ForMember(dest =>
-            //        //    dest.Name,
-            //        //    opt => opt.MapFrom(src => src.Name))
-            //        //.ForMember(
-            //        //    dest => dest.Address, 
-            //        //    opt => opt.MapFrom(src => src.Address));
-            //});
-
-            //var dto = ObjectMapper.Mapper.Map<DtoClass>(entity);
-
-            //_iMapper = config.CreateMapper();
-
-        }
-
+        /// <summary>
+        /// Obtiene una colección completa de stores
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<Adaptadores.Store> GetStores()
         {
             IRepository<Dominio.Entities.Store> storesRepository = new InfraestructuraDatos.Repositories.GenericRepository<Dominio.Entities.Store>(szDBContext);
@@ -48,6 +27,11 @@ namespace Elipgo.SuperZapatos.Aplicacion.Services
             return storesDTO;
         }
 
+        /// <summary>
+        /// Obtiene un Store
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Adaptadores.Store GetStore(long id)
         {
             IRepository<Dominio.Entities.Store> storesRepository = new InfraestructuraDatos.Repositories.GenericRepository<Dominio.Entities.Store>(szDBContext);
@@ -56,6 +40,10 @@ namespace Elipgo.SuperZapatos.Aplicacion.Services
             return storeDTO;
         }
 
+        /// <summary>
+        /// Realiza una adición de un store en el repositorio
+        /// </summary>
+        /// <param name="store"></param>
         public void AddStore(Store store)
         {
             IRepository<Dominio.Entities.Store> storesRepository = new InfraestructuraDatos.Repositories.GenericRepository<Dominio.Entities.Store>(szDBContext);
@@ -63,6 +51,10 @@ namespace Elipgo.SuperZapatos.Aplicacion.Services
             storesRepository.Insert(storeEntity);            
         }
 
+        /// <summary>
+        /// Realiza una actualización en el repositorio
+        /// </summary>
+        /// <param name="store"></param>
         public void UpdateStore(Store store)
         {
             IRepository<Dominio.Entities.Store> storesRepository = new InfraestructuraDatos.Repositories.GenericRepository<Dominio.Entities.Store>(szDBContext);
@@ -70,12 +62,19 @@ namespace Elipgo.SuperZapatos.Aplicacion.Services
             storesRepository.Update(storeEntity);
         }
 
+        /// <summary>
+        /// Elimina un store en el repositorio
+        /// </summary>
+        /// <param name="id"></param>
         public void DeleteStore(long id)
         {
             IRepository<Dominio.Entities.Store> storesRepository = new InfraestructuraDatos.Repositories.GenericRepository<Dominio.Entities.Store>(szDBContext);
             storesRepository.Delete(id);
         }
 
+        /// <summary>
+        /// Persiste los cambios
+        /// </summary>
         public void SaveChanges()
         {            
             szDBContext.SaveChanges();

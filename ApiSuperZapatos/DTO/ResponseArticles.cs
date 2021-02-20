@@ -15,7 +15,7 @@ namespace Elipgo.SuperZapatos.ApiSuperZapatos.DTO
             get { return Articles.Count; }
         }
 
-        public IList<Article> Articles { get; set; }
+        public IList<Aplicacion.Adaptadores.Article> Articles { get; set; }
 
     }
 }
