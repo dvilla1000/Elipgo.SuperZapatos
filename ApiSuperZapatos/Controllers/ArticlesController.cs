@@ -16,7 +16,12 @@ namespace Elipgo.SuperZapatos.ApiSuperZapatos.Controllers
     public class ArticlesController : ControllerBase
     {
         private readonly ILogger<ArticlesController> logger;
-        IConfiguration config = new ConfigurationBuilder().AddJsonFile("appsettings.json", true, true).Build();
+
+        public ArticlesController(ILogger<ArticlesController> logger)
+        {
+            this.logger = logger;
+        }
+
 
         // GET: api/<ArticlesController>
         [HttpGet]
@@ -102,7 +107,7 @@ namespace Elipgo.SuperZapatos.ApiSuperZapatos.Controllers
                 value.Id = id;
                 servicio.UpdateArticle(value);
                 servicio.SaveChanges();
-            }
+            }            
         }
 
         // DELETE api/<ArticlesController>/5

@@ -16,9 +16,12 @@ namespace Elipgo.SuperZapatos.ApiSuperZapatos.Controllers
     [ApiController]
     public class StoresController : ControllerBase
     {
-        private readonly ILogger<StoresController> logger;
-        IConfiguration config = new ConfigurationBuilder().AddJsonFile("appsettings.json", true, true).Build();
+        private readonly ILogger<StoresController> logger;        
 
+        public StoresController(ILogger<StoresController> logger)
+        {
+            this.logger = logger;
+        }
         // GET: api/<StoresController>
         [HttpGet]
         public IActionResult Get()
@@ -27,6 +30,7 @@ namespace Elipgo.SuperZapatos.ApiSuperZapatos.Controllers
             {
                 Aplicacion.Services.StoresService servicio = new Aplicacion.Services.StoresService();
                 IList<Aplicacion.Adaptadores.Store> stores = servicio.GetStoresNoTracking().ToList();
+                logger.LogInformation("Se obtuvieron todos los stores");
                 return Ok(new DTO.ResponseStores() { Success = true, Stores = stores }) ;
             }
             catch (Exception ex)

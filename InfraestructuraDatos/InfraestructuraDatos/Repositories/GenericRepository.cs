@@ -63,7 +63,6 @@ namespace Elipgo.SuperZapatos.InfraestructuraDatos.Repositories
                 return orderBy(query).ToList();
 
             return query.ToList();
-
         }
 
         public virtual TEntity GetById(long idEntity,bool AsTraking = true)

@@ -39,7 +39,6 @@ namespace Elipgo.SuperZapatos.Aplicacion.Services
             return storesDTO;
         }
 
-
         /// <summary>
         /// Obtiene un Store
         /// </summary>
