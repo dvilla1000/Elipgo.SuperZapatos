@@ -1,5 +1,5 @@
 ﻿
-namespace Elipgo.SuperZapatos.AppFormSuperZapatos
+namespace Elipgo.SuperZapatos.AppFormSuperZapatos.Views
 {
     partial class frmNewEditStore
     {
@@ -49,7 +49,6 @@ namespace Elipgo.SuperZapatos.AppFormSuperZapatos
             this.lblName.Size = new System.Drawing.Size(53, 17);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Name:";
-            this.lblName.Click += new System.EventHandler(this.label1_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -96,6 +95,7 @@ namespace Elipgo.SuperZapatos.AppFormSuperZapatos
             // 
             // btnSave
             // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -103,7 +103,7 @@ namespace Elipgo.SuperZapatos.AppFormSuperZapatos
             this.btnSave.ForeColor = System.Drawing.Color.Black;
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(285, 143);
+            this.btnSave.Location = new System.Drawing.Point(280, 131);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 40);
             this.btnSave.TabIndex = 5;
@@ -114,6 +114,7 @@ namespace Elipgo.SuperZapatos.AppFormSuperZapatos
             // 
             // btnCancel
             // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -121,7 +122,7 @@ namespace Elipgo.SuperZapatos.AppFormSuperZapatos
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(167, 143);
+            this.btnCancel.Location = new System.Drawing.Point(162, 131);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 40);
             this.btnCancel.TabIndex = 6;
@@ -132,10 +133,11 @@ namespace Elipgo.SuperZapatos.AppFormSuperZapatos
             // 
             // frmNewEditStore
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(400, 195);
+            this.ClientSize = new System.Drawing.Size(395, 183);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.tableLayoutPanel1);

@@ -21,13 +21,13 @@ namespace Elipgo.SuperZapatos.Dominio.Contratos
         /// <returns></returns>
         IEnumerable<T> Get(Expression<Func<T, bool>> filter = null,
             Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
-            string includeProperties = "");
+            string includeProperties = "", bool AsTraking = true);
         /// <summary>
         /// Obtiene una entidad por su identificador
         /// </summary>
         /// <param name="idEntity">Id de la entidad</param>
         /// <returns></returns>
-        T GetById(long idEntity);
+        T GetById(long idEntity, bool AsTraking = true);
         /// <summary>
         /// Inserta una nueva entidad
         /// </summary>

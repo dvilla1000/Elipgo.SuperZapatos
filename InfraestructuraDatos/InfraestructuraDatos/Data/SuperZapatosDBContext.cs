@@ -14,24 +14,20 @@ namespace Elipgo.SuperZapatos.InfraestructuraDatos.Data
     {
         public virtual DbSet<Store> Stores { get; set; }
         public virtual DbSet<Article> Articles { get; set; }
-        //public SuperZapatosDBContext(DbContextOptions<SuperZapatosDBContext> options) 
-        //    : base(options)
-        //{
-        //    Database.EnsureCreated();
-        //}
-
-        //public SuperZapatosDBContext(DbContextOptions options)
-        //    : base(options)
-        //{
-        //    Database.EnsureCreated();
-        //}
-
+        public virtual DbSet<Usuario> Usuarios { get; set; }
+        public virtual DbSet<Rol> Roles { get; set; }
         #region Métodos
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {            
             modelBuilder.Entity<Store>().ToTable("Stores").HasKey(e => e.Id);
             modelBuilder.Entity<Article>().ToTable("Articles").HasKey(e => e.Id);
             modelBuilder.Entity<Article>().Property(e => e.StoreId).ValueGeneratedNever().HasColumnName("storeId");
+            modelBuilder.Entity<Usuario>().ToTable("Usuarios").HasKey(e => e.Id);
+            modelBuilder.Entity<Rol>().ToTable("Roles").HasKey(e => e.Id);
+            modelBuilder.Entity<Usuario>()
+                        .HasMany<Rol>(u => u.Roles)
+                        .WithMany(r => r.Usuarios)
+                        .UsingEntity(ru => ru.ToTable("Roles_Usuarios"));
             base.OnModelCreating(modelBuilder);
         }        
 
@@ -40,7 +36,7 @@ namespace Elipgo.SuperZapatos.InfraestructuraDatos.Data
             base.OnConfiguring(optionsBuilder);
             IConfiguration config = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", true, true).Build();
-            optionsBuilder.UseSqlServer(config.GetConnectionString("localDB"));
+            optionsBuilder.UseSqlServer(config.GetConnectionString("localDB")).EnableSensitiveDataLogging();
         }
         #endregion
     }

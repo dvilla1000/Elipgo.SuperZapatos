@@ -1,5 +1,5 @@
 ﻿
-namespace Elipgo.SuperZapatos.AppFormSuperZapatos
+namespace Elipgo.SuperZapatos.AppFormSuperZapatos.Views
 {
     partial class frmStores
     {
@@ -73,6 +73,7 @@ namespace Elipgo.SuperZapatos.AppFormSuperZapatos
             this.btnDelete.Text = "Delete";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
@@ -129,7 +130,6 @@ namespace Elipgo.SuperZapatos.AppFormSuperZapatos
             this.lblTitulo.Size = new System.Drawing.Size(152, 17);
             this.lblTitulo.TabIndex = 7;
             this.lblTitulo.Text = "Total Registros:";
-            this.lblTitulo.Click += new System.EventHandler(this.lblTitulo_Click);
             // 
             // lblMsg
             // 

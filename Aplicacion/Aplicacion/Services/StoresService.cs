@@ -9,7 +9,7 @@ using System.Text;
 namespace Elipgo.SuperZapatos.Aplicacion.Services
 {
     /// <summary>
-    /// Clase de Servicio para los stores
+    /// Clase de Servicio de aplicación para los stores
     /// </summary>
     public class StoresService
     {
@@ -22,20 +22,45 @@ namespace Elipgo.SuperZapatos.Aplicacion.Services
         public IEnumerable<Adaptadores.Store> GetStores()
         {
             IRepository<Dominio.Entities.Store> storesRepository = new InfraestructuraDatos.Repositories.GenericRepository<Dominio.Entities.Store>(szDBContext);
-            List<Dominio.Entities.Store> stores = storesRepository.Get().ToList();                
+            List<Dominio.Entities.Store> stores = storesRepository.Get().ToList();
             List<Adaptadores.Store> storesDTO = ObjectMapper.Mapper.MapList<Dominio.Entities.Store, Adaptadores.Store>(stores);
             return storesDTO;
         }
 
         /// <summary>
+        /// Obtiene una colección completa de stores sin realizar tracking en el contexto
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<Adaptadores.Store> GetStoresNoTracking()
+        {
+            IRepository<Dominio.Entities.Store> storesRepository = new InfraestructuraDatos.Repositories.GenericRepository<Dominio.Entities.Store>(szDBContext);
+            List<Dominio.Entities.Store> stores = storesRepository.Get(null, null, String.Empty, false).ToList();
+            List<Adaptadores.Store> storesDTO = ObjectMapper.Mapper.MapList<Dominio.Entities.Store, Adaptadores.Store>(stores);
+            return storesDTO;
+        }
+
+
+        /// <summary>
         /// Obtiene un Store
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">Id del store</param>
         /// <returns></returns>
         public Adaptadores.Store GetStore(long id)
         {
             IRepository<Dominio.Entities.Store> storesRepository = new InfraestructuraDatos.Repositories.GenericRepository<Dominio.Entities.Store>(szDBContext);
             Dominio.Entities.Store store = storesRepository.GetById(id);
+            Adaptadores.Store storeDTO = ObjectMapper.Mapper.Map<Dominio.Entities.Store, Adaptadores.Store>(store);
+            return storeDTO;
+        }
+        /// <summary>
+        /// Obtiene un store sin realizar tracking
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public Adaptadores.Store GetStoreNoTracking(long id)
+        {
+            IRepository<Dominio.Entities.Store> storesRepository = new InfraestructuraDatos.Repositories.GenericRepository<Dominio.Entities.Store>(szDBContext);
+            Dominio.Entities.Store store = storesRepository.GetById(id, false);
             Adaptadores.Store storeDTO = ObjectMapper.Mapper.Map<Dominio.Entities.Store, Adaptadores.Store>(store);
             return storeDTO;
         }
@@ -65,7 +90,7 @@ namespace Elipgo.SuperZapatos.Aplicacion.Services
         /// <summary>
         /// Elimina un store en el repositorio
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">Id del store</param>
         public void DeleteStore(long id)
         {
             IRepository<Dominio.Entities.Store> storesRepository = new InfraestructuraDatos.Repositories.GenericRepository<Dominio.Entities.Store>(szDBContext);
@@ -73,7 +98,7 @@ namespace Elipgo.SuperZapatos.Aplicacion.Services
         }
 
         /// <summary>
-        /// Persiste los cambios
+        /// Guarda todos los cambios en el contexto
         /// </summary>
         public void SaveChanges()
         {            

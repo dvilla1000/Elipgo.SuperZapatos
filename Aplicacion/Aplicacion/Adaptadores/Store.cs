@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace Elipgo.SuperZapatos.Aplicacion.Adaptadores
 {
+    /// <summary>
+    /// Clase DTO para los stores
+    /// </summary>
     public class Store
     {
         public long Id { get; set; }

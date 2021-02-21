@@ -3,14 +3,16 @@ using Elipgo.SuperZapatos.InfraestructuraDatos.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Elipgo.SuperZapatos.InfraestructuraDatos.Migrations
 {
     [DbContext(typeof(SuperZapatosDBContext))]
-    partial class SuperZapatosDBContextModelSnapshot : ModelSnapshot
+    [Migration("20210221074905_1_0_0_0")]
+    partial class _1_0_0_0
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

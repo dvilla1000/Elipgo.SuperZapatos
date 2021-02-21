@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Elipgo.SuperZapatos.Aplicacion.Adaptadores
 {
+    /// <summary>
+    /// Clase para configuración del AutoMapper
+    /// </summary>
     public static class ObjectMapper
     {
         private static readonly Lazy<IMapper> Lazy = new Lazy<IMapper>(() =>

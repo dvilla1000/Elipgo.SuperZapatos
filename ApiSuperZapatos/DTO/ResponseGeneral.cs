@@ -5,7 +5,10 @@ using System.Threading.Tasks;
 
 namespace Elipgo.SuperZapatos.ApiSuperZapatos.DTO
 {
-    public class ResponseGeneral
+    /// <summary>
+    /// Clase base para las respuestas de peticiones
+    /// </summary>
+    public abstract class ResponseGeneral
     {
         public bool Success { get; set; }
 

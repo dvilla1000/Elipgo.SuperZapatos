@@ -25,7 +25,7 @@ namespace Elipgo.SuperZapatos.ApiSuperZapatos.Controllers
             try
             {
                 Aplicacion.Services.ArticlesService servicio = new Aplicacion.Services.ArticlesService();
-                IList<Aplicacion.Adaptadores.Article> articles = servicio.GetArticles().ToList();
+                IList<Aplicacion.Adaptadores.Article> articles = servicio.GetArticlesNoTracking().ToList();
                 return Ok(new DTO.ResponseArticles() { Success = true, Articles = articles });
             }
             catch (Exception ex)
@@ -47,12 +47,33 @@ namespace Elipgo.SuperZapatos.ApiSuperZapatos.Controllers
                     return BadRequest(new DTO.ResponseError() { ErrorCode = 400, ErrorMessage = "Bad request", Success = false });
                 }
                 Aplicacion.Services.ArticlesService servicio = new Aplicacion.Services.ArticlesService();
-                Aplicacion.Adaptadores.Article article = servicio.GetArticle(identificador);
+                Aplicacion.Adaptadores.Article article = servicio.GetArticleNoTracking(identificador);
                 if (article == null)
                 {
                     return NotFound(new DTO.ResponseError() { ErrorCode = 404, ErrorMessage = "Record not Found", Success = false });
                 }
                 return Ok(new DTO.ResponseArticle() { Success = true, Article = article });
+            }
+            catch (Exception ex)
+            {
+                logger.LogError("Ocurrió un error interno. Id: " + id.ToString(), ex);
+                return StatusCode(500, new DTO.ResponseError() { ErrorCode = 500, ErrorMessage = "Server Error", Success = false });
+            }
+        }
+
+        [HttpGet("Store/{id}")]
+        public IActionResult GetByStore(string id)
+        {
+            try
+            {
+                long identificador = 0;
+                if (!long.TryParse(id, out identificador))
+                {
+                    return BadRequest(new DTO.ResponseError() { ErrorCode = 400, ErrorMessage = "Bad request", Success = false });
+                }
+                Aplicacion.Services.ArticlesService servicio = new Aplicacion.Services.ArticlesService();
+                IList<Aplicacion.Adaptadores.Article> articles = servicio.GetArticlesStore(identificador).ToList();
+                return Ok(new DTO.ResponseArticles() { Success = true, Articles = articles });
             }
             catch (Exception ex)
             {
@@ -75,7 +96,7 @@ namespace Elipgo.SuperZapatos.ApiSuperZapatos.Controllers
         public void Put(long id, [FromBody] Aplicacion.Adaptadores.Article value)
         {
             Aplicacion.Services.ArticlesService servicio = new Aplicacion.Services.ArticlesService();
-            Aplicacion.Adaptadores.Article article = servicio.GetArticle(id);
+            Aplicacion.Adaptadores.Article article = servicio.GetArticleNoTracking(id);
             if (article != null)
             {
                 value.Id = id;

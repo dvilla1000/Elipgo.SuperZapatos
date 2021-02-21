@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Elipgo.SuperZapatos.ApiSuperZapatos.DTO
 {
+    /// <summary>
+    /// Clase para devolver respuesta a la petición de una colección de stores.
+    /// </summary>
     public class ResponseStores : ResponseGeneral
     {
         [JsonProperty("total_elements")]

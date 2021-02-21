@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Elipgo.SuperZapatos.Aplicacion.Adaptadores
 {
+    /// <summary>
+    /// Clase para establecer el mapeo de las clases concretas
+    /// </summary>
     public class CustomMapper : Profile
     {
         public CustomMapper()

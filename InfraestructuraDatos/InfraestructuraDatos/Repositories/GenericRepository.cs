@@ -31,7 +31,7 @@ namespace Elipgo.SuperZapatos.InfraestructuraDatos.Repositories
         }
 
         public virtual void Delete(TEntity entityToDelete)
-        {
+        {            
             if (context.Entry(entityToDelete).State == EntityState.Detached)
             {
                 dbSet.Attach(entityToDelete);
@@ -42,9 +42,13 @@ namespace Elipgo.SuperZapatos.InfraestructuraDatos.Repositories
 
         public virtual IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>> filter = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
-            string includeProperties = "")
-        {
+            string includeProperties = "", bool AsTraking = true)
+        {            
             IQueryable<TEntity> query = dbSet;
+            if (!AsTraking)
+            {
+                query = query.AsNoTracking<TEntity>();                
+            }
             if (filter != null)
                 query = query.Where(filter);
 
@@ -62,8 +66,14 @@ namespace Elipgo.SuperZapatos.InfraestructuraDatos.Repositories
 
         }
 
-        public virtual TEntity GetById(long idEntity)
-        {
+        public virtual TEntity GetById(long idEntity,bool AsTraking = true)
+        {            
+            if (!AsTraking)
+            {                
+                var entity = context.Set<TEntity>().Find(idEntity);
+                context.Entry(entity).State = EntityState.Detached;
+                return entity;
+            }
             return dbSet.Find(idEntity);
         }
 
@@ -74,8 +84,9 @@ namespace Elipgo.SuperZapatos.InfraestructuraDatos.Repositories
 
         public virtual void Update(TEntity entity)
         {
-            dbSet.Attach(entity);
-            context.Entry(entity).State = EntityState.Modified;
+            dbSet.Update(entity);
+            //dbSet.Attach(entity);
+            //context.Entry(entity).State = EntityState.Modified;
         }
 
     }

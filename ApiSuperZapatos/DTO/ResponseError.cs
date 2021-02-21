@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace Elipgo.SuperZapatos.ApiSuperZapatos.DTO
 {
+    /// <summary>
+    /// Clase para devolver respuesta de error de una petición.
+    /// </summary>
     public class ResponseError : ResponseGeneral
     {
-        [JsonProperty("error_msg")]
-        //[JsonProperty(NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
+        [JsonProperty("error_msg")]        
         public string ErrorMessage { get; set; }
         [JsonProperty("error_code")]
         public int ErrorCode { get; set; }
