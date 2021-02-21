@@ -25,10 +25,10 @@ namespace Elipgo.SuperZapatos.AppFormSuperZapatos.Views
         #region Eventos
         private void btnSlide_Click(object sender, EventArgs e)
         {
-            if (MenuVertical.Width == 250)
+            if (MenuVertical.Width == 180)
                 MenuVertical.Width = 35;
             else
-                MenuVertical.Width = 250;
+                MenuVertical.Width = 180;
         }
         private void BarraTitulo_MouseDown(object sender, MouseEventArgs e)
         {
@@ -83,6 +83,21 @@ namespace Elipgo.SuperZapatos.AppFormSuperZapatos.Views
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void panelContenedor_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("En construcción", "Super Zapatos", MessageBoxButtons.OK);
         }
     }
 }

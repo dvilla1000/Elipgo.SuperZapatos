@@ -24,7 +24,8 @@ namespace Elipgo.SuperZapatos.AppFormSuperZapatos.Views
 
         private void frmNewEditArticle_Load(object sender, EventArgs e)
         {
-            lblStoreName.Text = Store.Name;
+            if (Store!= null)
+                lblStoreName.Text = Store.Name;
             if (this.Tag != null)
             {
                 LoadDataForm((Models.Article)this.Tag);

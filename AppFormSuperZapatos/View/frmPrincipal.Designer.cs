@@ -35,14 +35,14 @@ namespace Elipgo.SuperZapatos.AppFormSuperZapatos.Views
             this.btnArticles = new System.Windows.Forms.Button();
             this.btnOrder = new System.Windows.Forms.Button();
             this.btnStores = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbxLogo = new System.Windows.Forms.PictureBox();
             this.BarraTitulo = new System.Windows.Forms.Panel();
             this.lblPerfil = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnSlide = new System.Windows.Forms.PictureBox();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.MenuVertical.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.BarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSlide)).BeginInit();
             this.SuspendLayout();
@@ -54,16 +54,15 @@ namespace Elipgo.SuperZapatos.AppFormSuperZapatos.Views
             this.MenuVertical.Controls.Add(this.btnArticles);
             this.MenuVertical.Controls.Add(this.btnOrder);
             this.MenuVertical.Controls.Add(this.btnStores);
-            this.MenuVertical.Controls.Add(this.pictureBox1);
+            this.MenuVertical.Controls.Add(this.pbxLogo);
             this.MenuVertical.Dock = System.Windows.Forms.DockStyle.Left;
             this.MenuVertical.Location = new System.Drawing.Point(0, 0);
             this.MenuVertical.Name = "MenuVertical";
-            this.MenuVertical.Size = new System.Drawing.Size(250, 561);
+            this.MenuVertical.Size = new System.Drawing.Size(180, 561);
             this.MenuVertical.TabIndex = 0;
             // 
             // btnExit
             // 
-            this.btnExit.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -71,9 +70,9 @@ namespace Elipgo.SuperZapatos.AppFormSuperZapatos.Views
             this.btnExit.ForeColor = System.Drawing.Color.White;
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(0, 521);
+            this.btnExit.Location = new System.Drawing.Point(0, 182);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(250, 40);
+            this.btnExit.Size = new System.Drawing.Size(180, 40);
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -88,10 +87,10 @@ namespace Elipgo.SuperZapatos.AppFormSuperZapatos.Views
             this.btnArticles.ForeColor = System.Drawing.Color.White;
             this.btnArticles.Image = ((System.Drawing.Image)(resources.GetObject("btnArticles.Image")));
             this.btnArticles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnArticles.Location = new System.Drawing.Point(0, 117);
+            this.btnArticles.Location = new System.Drawing.Point(0, 102);
             this.btnArticles.Name = "btnArticles";
-            this.btnArticles.Size = new System.Drawing.Size(250, 40);
-            this.btnArticles.TabIndex = 4;
+            this.btnArticles.Size = new System.Drawing.Size(180, 40);
+            this.btnArticles.TabIndex = 3;
             this.btnArticles.Text = "Articles";
             this.btnArticles.UseVisualStyleBackColor = true;
             this.btnArticles.Click += new System.EventHandler(this.btnArticles_Click);
@@ -105,12 +104,13 @@ namespace Elipgo.SuperZapatos.AppFormSuperZapatos.Views
             this.btnOrder.ForeColor = System.Drawing.Color.White;
             this.btnOrder.Image = ((System.Drawing.Image)(resources.GetObject("btnOrder.Image")));
             this.btnOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOrder.Location = new System.Drawing.Point(0, 163);
+            this.btnOrder.Location = new System.Drawing.Point(0, 142);
             this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(250, 40);
-            this.btnOrder.TabIndex = 3;
+            this.btnOrder.Size = new System.Drawing.Size(180, 40);
+            this.btnOrder.TabIndex = 4;
             this.btnOrder.Text = "Order";
             this.btnOrder.UseVisualStyleBackColor = true;
+            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
             // 
             // btnStores
             // 
@@ -121,23 +121,23 @@ namespace Elipgo.SuperZapatos.AppFormSuperZapatos.Views
             this.btnStores.ForeColor = System.Drawing.Color.White;
             this.btnStores.Image = ((System.Drawing.Image)(resources.GetObject("btnStores.Image")));
             this.btnStores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStores.Location = new System.Drawing.Point(0, 72);
+            this.btnStores.Location = new System.Drawing.Point(0, 62);
             this.btnStores.Name = "btnStores";
-            this.btnStores.Size = new System.Drawing.Size(250, 40);
+            this.btnStores.Size = new System.Drawing.Size(180, 40);
             this.btnStores.TabIndex = 2;
             this.btnStores.Text = "Stores";
             this.btnStores.UseVisualStyleBackColor = true;
             this.btnStores.Click += new System.EventHandler(this.btnStores_Click);
             // 
-            // pictureBox1
+            // pbxLogo
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(158, 62);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.pbxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbxLogo.Image")));
+            this.pbxLogo.Location = new System.Drawing.Point(0, 0);
+            this.pbxLogo.Name = "pbxLogo";
+            this.pbxLogo.Size = new System.Drawing.Size(180, 62);
+            this.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxLogo.TabIndex = 1;
+            this.pbxLogo.TabStop = false;
             // 
             // BarraTitulo
             // 
@@ -146,9 +146,9 @@ namespace Elipgo.SuperZapatos.AppFormSuperZapatos.Views
             this.BarraTitulo.Controls.Add(this.lblTitulo);
             this.BarraTitulo.Controls.Add(this.btnSlide);
             this.BarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BarraTitulo.Location = new System.Drawing.Point(250, 0);
+            this.BarraTitulo.Location = new System.Drawing.Point(180, 0);
             this.BarraTitulo.Name = "BarraTitulo";
-            this.BarraTitulo.Size = new System.Drawing.Size(634, 50);
+            this.BarraTitulo.Size = new System.Drawing.Size(704, 50);
             this.BarraTitulo.TabIndex = 1;
             this.BarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BarraTitulo_MouseDown);
             // 
@@ -157,7 +157,7 @@ namespace Elipgo.SuperZapatos.AppFormSuperZapatos.Views
             this.lblPerfil.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblPerfil.Image = ((System.Drawing.Image)(resources.GetObject("lblPerfil.Image")));
             this.lblPerfil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblPerfil.Location = new System.Drawing.Point(413, 0);
+            this.lblPerfil.Location = new System.Drawing.Point(483, 0);
             this.lblPerfil.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPerfil.Name = "lblPerfil";
             this.lblPerfil.Size = new System.Drawing.Size(221, 50);
@@ -191,10 +191,11 @@ namespace Elipgo.SuperZapatos.AppFormSuperZapatos.Views
             // panelContenedor
             // 
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Location = new System.Drawing.Point(250, 50);
+            this.panelContenedor.Location = new System.Drawing.Point(180, 50);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(634, 511);
+            this.panelContenedor.Size = new System.Drawing.Size(704, 511);
             this.panelContenedor.TabIndex = 2;
+            this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint);
             // 
             // frmPrincipal
             // 
@@ -204,10 +205,12 @@ namespace Elipgo.SuperZapatos.AppFormSuperZapatos.Views
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.BarraTitulo);
             this.Controls.Add(this.MenuVertical);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPrincipal";
             this.Text = "Super Zapatos v1.0";
+            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.MenuVertical.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();
             this.BarraTitulo.ResumeLayout(false);
             this.BarraTitulo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSlide)).EndInit();
@@ -218,7 +221,7 @@ namespace Elipgo.SuperZapatos.AppFormSuperZapatos.Views
         #endregion
 
         private System.Windows.Forms.Panel MenuVertical;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbxLogo;
         private System.Windows.Forms.Panel BarraTitulo;
         private System.Windows.Forms.PictureBox btnSlide;
         private System.Windows.Forms.Panel panelContenedor;
